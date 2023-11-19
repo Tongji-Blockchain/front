@@ -1,0 +1,58 @@
+{
+  "name": "eqlworkbench-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-react": "^1.0.6",
+    "antd": "^5.10.0",
+    "axios": "^0.27.2",
+    "babel-plugin-import": "^1.13.5",
+    "canvas-highlighter": "^1.0.6",
+    "customize-cra": "^1.0.0",
+    "echarts-for-react": "^3.0.2",
+    "for-editor": "^0.3.5",
+    "highlight.js": "^11.8.0",
+    "jsencrypt": "^3.3.2",
+    "marked": "^9.0.0",
+    "nanoid": "^3.3.3",
+    "react": "^18.1.0",
+    "react-app-rewired": "^2.2.1",
+    "react-color": "^2.19.3",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "5.0.1",
+    "wangeditor": "^4.7.15",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
+  }
+}
