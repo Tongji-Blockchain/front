@@ -46,10 +46,12 @@ export default class Login extends Component {
                                 if (res2.status === 200) {
                                     const token = res2.data
                                     localStorage.setItem("token", token)
+                                    localStorage.setItem("token_vaild","Y")
                                     message.success("登录成功！")
+                                    that.props.history.push('/')
                                 }
                             })
-                            that.props.history.push('/')
+                            //that.props.history.push('/')
                         }
                     })
                 }

@@ -11,8 +11,12 @@ export default class FileList extends Component {
 
     state = {
         isModalOpen: false,
+        isModalOpen2: false,
         abstractList:[],
-        abstract:""
+        abstract:"",
+        tmp_fileId:"",
+        tmp_attitude:"",
+        tmp_score:-1
     }
     handleOpen = () => {
         this.setState({isModalOpen: false})
@@ -20,16 +24,36 @@ export default class FileList extends Component {
     handleClose = () => {
         this.setState({isModalOpen: false})
     }
-    click = (fileId,score) => {
-        api.uploadEndorsement(fileId,score).then(res => {
+
+    handleNo = () => {
+        this.setState({tmp_fileId: ""})
+        this.setState({tmp_score: -1})
+        this.setState({tmp_attitude:""})
+        this.setState({isModalOpen2: false})
+    }
+    handleYes = () => {
+        api.uploadEndorsement(this.state.tmp_fileId,this.state.tmp_score).then(res => {
             console.log(res)        // console.log() 打印网络请求结果
+            if(res===200){
+                api.getAbstract().then(res=>{
+                    this.setState({abstractList: res.data})
+                })
+            }
+            this.setState({isModalOpen2: false})
         })
+    }
+
+    click = (fileId,score,attitude) => {
+        this.setState({tmp_fileId: fileId})
+        this.setState({tmp_score: score})
+        this.setState({tmp_attitude: attitude})
+        this.setState({isModalOpen2: true})
     }
 
     componentDidMount() {
         checkToken();
-        let flag=localStorage.getItem("token_vaild");
-        if(flag=="N"){
+        const flag=localStorage.getItem("token_vaild");
+        if(flag==="N"){
             message.error("登录超时！请重新登录")
             this.props.history.push("/login")
         }else{
@@ -64,10 +88,10 @@ export default class FileList extends Component {
                 key: 'operate',
                 render: (_, record) => {
                     return <a onClick={() => {
-                        this.setState({isModalOpen: true})
                         // this.props.history.push('/file-audit')
                         api.getFileAbstract(record.fileId).then(res =>{
                             this.setState({abstract : res.data})
+                            this.setState({isModalOpen: true})
                         })
                     }}>查看摘要</a>
                 }
@@ -78,16 +102,16 @@ export default class FileList extends Component {
                 key: 'review',
                 render: (_, record, index) => {
                     if (record.endorseScore === -1) {
-                        return <><SmileOutlined onClick={this.click(record.fileId,1)} style={{color: "green"}}/>
-                        <MehOutlined onClick={this.click(record.fileId,2)} style={{color: "gray"}}/>
-                        <FrownOutlined onClick={this.click(record.fileId,3)} style={{color: "red"}}/></>
+                        return <>
+                        <button onClick={()=>{this.click(record.fileId,2,"同意")}} style={{color: "green"}}>同意</button>
+                        <button onClick={()=>{this.click(record.fileId,1,"一般")}} style={{color: "gray"}}>一般</button>
+                        <button onClick={()=>{this.click(record.fileId,0,"反对")}} style={{color: "red"}}>反对</button></>
                     } else if (record.endorseScore === 2) {
-                        return <><SmileOutlined style={{color: "green"}}/>
-                        </>
+                        return <p style={{color: "green"}}>同意</p>
                     } else if(record.endorseScore === 1) {
-                        return <MehOutlined style={{color: "gray"}}/>
+                        return <p style={{color: "gray"}}>一般</p>
                     }else if(record.endorseScore === 0){
-                        return <FrownOutlined style={{color: "red"}}/>
+                        return <p style={{color: "red"}}>反对</p>
                     }
                     return <div></div>
                 }
@@ -103,6 +127,9 @@ export default class FileList extends Component {
                 <Table dataSource={this.state.abstractList} columns={columns} style={{marginTop: "30px"}}/>
                 <Modal title="Basic Modal" open={isModalOpen} onOk={this.handleOpen} onCancel={this.handleClose}>
                     <p>{this.state.abstract}</p>
+                </Modal>
+                <Modal title="Insure Modal" open={this.state.isModalOpen2} onOk={this.handleYes} onCancel={this.handleNo} okText="Yes" cancelText="No">
+                    <p>你确定要选择{this.state.tmp_attitude}态度吗？</p>
                 </Modal>
             </>
         );

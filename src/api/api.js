@@ -134,7 +134,7 @@ export function checkLegalToken(token){
 export function getAbstract(){
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request("GET","/file/EndorseFile",{token}).then(res => res)
+    return request("GET","file/EndorseFile",{token}).then(res => res)
 }
 
 //获取摘要

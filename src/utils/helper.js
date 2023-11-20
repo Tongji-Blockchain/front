@@ -66,15 +66,14 @@ export function tips(res) {
     }
 }
 
-export function checkToken(){
-    let token = localStorage.getItem("token");
+export function checkToken () {
+    const token = localStorage.getItem("token")
     //console.log(token);
     api.checkLegalToken(token).then(res => {
-        if(res.status==200){
-            localStorage.setItem("token_vaild","Y");
-        }else{
-            localStorage.setItem("token_vaild","N");
+        if(res.status===200){
+            localStorage.setItem("token_vaild","Y")
+        }else if(res.status===403){
+            localStorage.setItem("token_vaild","N")
         }
-    })
-    
+    }) 
 }
