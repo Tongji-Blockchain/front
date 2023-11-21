@@ -51,6 +51,7 @@ export function login(accessKey, randomNumber) {
     return request("POST", "user/login", {accessKey, randomNumber}).then(res => res)
 }
 
+//似乎有点问题
 export function uploadFile(titleName, filestring) {
     return request("POST", "file/uploadFileString", {
         titleName,
@@ -74,10 +75,11 @@ export function getFileContentAndComment() {
     return request("GET", "file/downEncryptFileString", {accessKey: "TOKEN", fileEncryptKey: "wclU5tXM841N4EFDdcymbA=="}).then(res => res)
 }
 
-export function uploadEndorsement(fileId,score) {
+//上传背书评分
+export function uploadEndorsement(fileId,fileScore) {
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request("POST", "file/Endorsement", {fileId,score,token}).then(res => res)
+    return request("POST", "file/Endorsement", {fileId,fileScore,token}).then(res => res)
 }
 
 
@@ -141,7 +143,7 @@ export function getAbstract(){
 export function getFileAbstract(fileId){
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request("GET","/file/summaryDownload",{fileId,token}).then(res => res)
+    return request("POST","file/SummaryDownload",{fileId,token}).then(res => res)
 }
 
 export function addNewComment() {

@@ -32,15 +32,17 @@ export default class FileList extends Component {
         this.setState({isModalOpen2: false})
     }
     handleYes = () => {
+        console.log(this.state.tmp_score)
         api.uploadEndorsement(this.state.tmp_fileId,this.state.tmp_score).then(res => {
             console.log(res)        // console.log() 打印网络请求结果
-            if(res===200){
+            if(res.status===200){
                 api.getAbstract().then(res=>{
                     this.setState({abstractList: res.data})
                 })
             }
-            this.setState({isModalOpen2: false})
         })
+        this.setState({isModalOpen2: false})
+        this.forceUpdate()
     }
 
     click = (fileId,score,attitude) => {
@@ -86,11 +88,11 @@ export default class FileList extends Component {
                 title: '操作',
                 dataIndex: 'operate',
                 key: 'operate',
-                render: (_, record) => {
+                render: (_, record, index) => {
                     return <a onClick={() => {
                         // this.props.history.push('/file-audit')
                         api.getFileAbstract(record.fileId).then(res =>{
-                            this.setState({abstract : res.data})
+                            this.setState({abstract : res.data.fileSummary})
                             this.setState({isModalOpen: true})
                         })
                     }}>查看摘要</a>
@@ -103,9 +105,9 @@ export default class FileList extends Component {
                 render: (_, record, index) => {
                     if (record.endorseScore === -1) {
                         return <>
-                        <button onClick={()=>{this.click(record.fileId,2,"同意")}} style={{color: "green"}}>同意</button>
-                        <button onClick={()=>{this.click(record.fileId,1,"一般")}} style={{color: "gray"}}>一般</button>
-                        <button onClick={()=>{this.click(record.fileId,0,"反对")}} style={{color: "red"}}>反对</button></>
+                        <button key="agree" onClick={()=>{this.click(record.fileId,2,"同意")}} style={{color: "green"}}>同意</button>
+                        <button key="just_so_so" onClick={()=>{this.click(record.fileId,1,"一般")}} style={{color: "gray"}}>一般</button>
+                        <button key="disagree" onClick={()=>{this.click(record.fileId,0,"反对")}} style={{color: "red"}}>反对</button></>
                     } else if (record.endorseScore === 2) {
                         return <p style={{color: "green"}}>同意</p>
                     } else if(record.endorseScore === 1) {
@@ -113,7 +115,6 @@ export default class FileList extends Component {
                     }else if(record.endorseScore === 0){
                         return <p style={{color: "red"}}>反对</p>
                     }
-                    return <div></div>
                 }
             },
             {
