@@ -58,35 +58,27 @@ export default class Login extends Component {
         };
 
         return (
-            <>
-                <div style={{marginLeft: "10px"}}>
-                    <Row>
-                        <Col sm={11} style={{marginTop: "250px"}}>
-                            <h1 style={{textAlign: "center"}}>
-                                登录
-                            </h1>
-                            <Row>
-                                <Col sm={4}></Col>
-                                <Col sm={16}>
-                                    <div>
-                                        <Upload {...props} style={{display: "block"}} >
-                                            <Button icon={<UploadOutlined />} style={{width: "436.94px"}}>点击上传数字身份文件</Button>
-                                        </Upload>
-                                    </div>
-                                    <a onClick={this.toRegister} style={{marginTop: "7px", display: "block"}}>尚未生成数字身份？点击前往注册页面！</a>
-                                </Col>
-                                <Col sm={4}></Col>
-                            </Row>
-                        </Col>
-                        <Col sm={2}>
+            <div style={{ margin: "200px" }}>
+                <Row type="flex" align="middle" justify="center">
+                    {/* 左侧部分：欢迎信息和系统介绍 */}
+                    <Col sm={12} style={{ textAlign: "center", padding: "50px" }}>
+                        <h1>欢迎使用[系统名称]</h1>
+                        <p>这是一个用于[简要描述系统用途]的平台。我们提供[列举主要功能或特点]。</p>
+                    </Col>
 
-                        </Col>
-
-                        <Col sm={11}>
-                        </Col>
-                    </Row>
-                </div>
-            </>
+                    {/* 右侧部分：登录表单 */}
+                    <Col sm={12} style={{ padding: "50px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                        <h1 style={{ textAlign: "center" }}>
+                            登录
+                        </h1>
+                        <Upload {...this.props} style={{ width: "100%", marginBottom: "20px" }}>
+                            <Button icon={<UploadOutlined />}>点击上传数字身份文件</Button>
+                        </Upload>
+                        <br/>
+                        <a onClick={this.toRegister}>尚未生成数字身份？点击前往注册页面！</a>
+                    </Col>
+                </Row>
+            </div>
         )
     }
 }
