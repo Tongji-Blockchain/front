@@ -12,8 +12,8 @@ export default class FileList extends Component {
 
     componentDidMount() {
         checkToken();
-        let flag=localStorage.getItem("token_vaild");
-        if(flag=="N"){
+        const flag=localStorage.getItem("token_vaild");
+        if(flag==="N"){
             message.error("登录超时！请重新登录")
             this.props.history.push("/login")
         }else{

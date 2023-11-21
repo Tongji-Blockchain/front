@@ -10,11 +10,11 @@ import { checkToken } from '../../utils/helper';
 export default function FileUpload(props) {
     //检查token
     checkToken();
-        let flag=localStorage.getItem("token_vaild");
-        if(flag=="N"){
-            message.error("登录超时！请重新登录")
-            props.history.push("/login")
-        }
+    const flag=localStorage.getItem("token_vaild");
+    if(flag==="N"){
+        message.error("登录超时！请重新登录")
+        props.history.push("/login")
+    }
 
     // editor 实例
     const [editor, setEditor] = useState(null)                   // JS 语法
