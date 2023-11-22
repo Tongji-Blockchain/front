@@ -109,7 +109,7 @@ export default class Base extends Component {
                             textAlign: 'center',
                         }}
                     >
-                        政务项目Demo ©2023 PAI实验室版权所属
+                        加密政务内参批注演示系统 ©2023 PAI实验室版权所属
                     </Footer>
                 </Layout>
             </Layout>
