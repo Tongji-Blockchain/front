@@ -21,6 +21,7 @@ import AbstractReview from "../AbstractReview"
 import FileAudit from "../FileAudit/index"
 import NoteEditor from "../NoteEditor/index"
 import FileUpload from "../FileUpload";
+import Login from "../Login";
 import Test from "../Test";
 import Test2 from "../Test2";
 import Chat from "../Chat";
@@ -74,7 +75,7 @@ export default class Base extends Component {
                         <Menu.Item key={1} icon={<FileTextOutlined />}><NavLink to="/file-list">文件列表</NavLink></Menu.Item>
                         <Menu.Item key={2} icon={<FileAddOutlined />}><NavLink to="/file-upload">文件上传</NavLink></Menu.Item>
                         <Menu.Item key={3} icon={<SecurityScanOutlined />}><NavLink to="/abstract-review">摘要背书</NavLink></Menu.Item>
-                        {/*<Menu.Item key={4} icon={<SendOutlined />}><NavLink to="/chat">加密通信</NavLink></Menu.Item>*/}
+                        <Menu.Item key={4} icon={<SendOutlined />}><NavLink to="/Login">登录</NavLink></Menu.Item>
                         {/*<Menu.Item key={5} icon={<SendOutlined />}><NavLink to="/test">测试页面</NavLink></Menu.Item>*/}
                         {/*<Menu.Item key={6} icon={<SendOutlined />}><NavLink to="/test2">测试页面2</NavLink></Menu.Item>*/}
                         {/*<Menu.Item key={3} icon={<BarChartOutlined />}><NavLink to="/eql/manage/data">数据管理</NavLink></Menu.Item>*/}
@@ -97,6 +98,7 @@ export default class Base extends Component {
                             <Route exact path="/chat" component={Chat} />
                             <Route exact path="/test" component={Test} />
                             <Route exact path="/test2" component={Test2} />
+                            <Route exact path="/Login" component={Login} />
                             <Route exact path="/NoteEditor/:id" component={NoteEditor} />
                             {/*<Route exact path="/query" component={Query}/>*/}
                             {/*<Route exact path="/graph" component={GraphManagement}/>*/}
