@@ -19,11 +19,12 @@ import GraphConfig from "../../components/GraphConfig";
 import FileList from "../FileList"
 import AbstractReview from "../AbstractReview"
 import FileAudit from "../FileAudit/index"
+import NoteEditor from "../NoteEditor/index"
 import FileUpload from "../FileUpload";
 import Test from "../Test";
 import Test2 from "../Test2";
-
 import Chat from "../Chat";
+
 const {Header, Content, Footer, Sider} = Layout;
 
 
@@ -96,6 +97,7 @@ export default class Base extends Component {
                             <Route exact path="/chat" component={Chat} />
                             <Route exact path="/test" component={Test} />
                             <Route exact path="/test2" component={Test2} />
+                            <Route exact path="/NoteEditor/:id" component={NoteEditor} />
                             {/*<Route exact path="/query" component={Query}/>*/}
                             {/*<Route exact path="/graph" component={GraphManagement}/>*/}
                             {/*<Route exact path="/graph/create" component={CreateGraph} />*/}
@@ -109,7 +111,7 @@ export default class Base extends Component {
                             textAlign: 'center',
                         }}
                     >
-                        加密政务内参批注演示系统 ©2023 PAI实验室版权所属
+                        上海市委网信办政务内参批注系统 ©2023 PAI实验室版权所属
                     </Footer>
                 </Layout>
             </Layout>
