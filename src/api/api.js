@@ -99,13 +99,6 @@ export function uploadArticle(titleName, fileString) {
     return request("POST", "file/directUpload", {titleName, fileString, token}).then(res => res)
 }
 
-// 上传批注（Note）
-export function uploadNote(articleId, newContent, noteId, noteStirng) {
-    let token = localStorage.getItem("token");
-    if (!token) token = "";
-    return request("POST", "note/new-note", {articleId, newContent, noteId, noteStirng, token}).then(res => res)
-}
-
 // 上传评论（Comment）👌
 export function uploadComment(fileId, commentString, commentScore) {
     let token = localStorage.getItem("token");
@@ -146,25 +139,32 @@ export function getFileAbstract(fileId){
     return request("POST","file/SummaryDownload",{fileId,token}).then(res => res)
 }
 
-//获取批注信息
-export function getNoteContentAndTitle(NoteId){
+// 上传高亮文本
+export function uploadHighLight(articleId, newContent, highLightId, highLight) {
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request().then(res => res)
+    return request("POST", "note/new-highLight", {articleId, newContent, highLightId, highLight, token}).then(res => res)
+}
+
+//获取高亮文本和文章标题
+export function getHighLightAndTitle(highLightId){
+    let token = localStorage.getItem("token");
+    if (!token) token = "";
+    return request("POST", "note/getHighLightAndTitle",{highLightId,token}).then(res => res)
 }
 
 //获取批注列表
-export function getNoteCommentList(NoteId){
+export function getNoteList(highLightId){
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request().then(res => res)
+    return request("POST", "note/getNoteList",{highLightId,token}).then(res => res)
 }
 
 //上传批注
-export function uploadNoteComment(NoteId){
+export function uploadNote(highLightId, note){
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request().then(res => res)
+    return request("POST", "note/uploadNote",{highLightId,note,token}).then(res => res)
 }
 
 

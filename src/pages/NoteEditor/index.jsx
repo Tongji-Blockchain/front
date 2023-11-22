@@ -21,21 +21,23 @@ export default function SummaryEditor(props) {
     const [html, setHtml] = useState("")
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // 评论内容
-    const [rate, setRate] = useState(0);
-    const [noteComment, setNoteComment] = useState("");
+    // 批注内容
+    const [note, setNote] = useState("");
+    const [highLight, setHighLight] = useState("");
 
-    // 评论列表
-    const [noteCommentList, setNoteCommentList] = useState([]);
+    // 批注列表
+    const [noteList, setNoteList] = useState([]);
 
     // 模拟 ajax 请求，异步设置 html
     useEffect(() => {
-        api.getNoteContentAndTitle(id).then(res => {
+        api.getHighLightAndTitle(id).then(res => {
+            setHighLight(res.data.highLight)
+            setTitle(res.data.fileTitle)
             //标题、内容
         })
 
-        api.getNoteCommentList(id).then(res => {
-            setNoteCommentList(res.data)
+        api.getNoteList(id).then(res => {
+            setNoteList(res.data)
         })
         //
         // setTimeout(() => {
@@ -61,7 +63,7 @@ export default function SummaryEditor(props) {
                         <h2>{title}</h2>
 
                         <div style={{ border: '1px solid #ccc', zIndex: 100}}>
-                            <p style={{ height: '500px', overflowY: 'hidden' }}>{html}</p>
+                            <p style={{ height: '500px', overflowY: 'hidden' }}>{highLight}</p>
                         </div>
                     </div>
                 </Col>
@@ -69,34 +71,34 @@ export default function SummaryEditor(props) {
                 <Col sm={8}>
                     <div style={{marginTop: "30px", marginLeft: "30px"}}>
                         <h2>批注</h2>
-                        <Button onClick={() => {setIsModalOpen(true)}} type="dashed" style={{marginTop: "10px", textAlign: "center", width: "100%"}}>创建评论</Button>
+                        <Button onClick={() => {setIsModalOpen(true)}} type="dashed" style={{marginTop: "10px", textAlign: "center", width: "100%"}}>创建批注</Button>
                         <Modal title="请输入您对本文段的批注" open={isModalOpen} onOk={() => {
-                            api.uploadNoteComment(id, noteComment, rate).then(res => {
+                            api.uploadNote(id, note).then(res => {
                                 tips(res)
-                                api.getNoteCommentList(id).then(res => {
-                                    setNoteCommentList(res.data)
+                                api.getNoteList(id).then(res => {
+                                    setNoteList(res.data)
                                 })
                                 setIsModalOpen(false)
                             })
                         }} onCancel={() => {setIsModalOpen(false)}}>
-                            <div style={{display: "flex", alignItems: "center"}}>
+                            {/* <div style={{display: "flex", alignItems: "center"}}>
                                 <span>评分</span> <Rate style={{marginLeft: "5px"}} onChange={(e) => {
                                 setRate(e)
                             }}/>
-                            </div>
+                            </div> */}
                             <div style={{marginTop: "7px"}}>
-                                <span>评语</span>
+                                <span>批注内容</span>
                                 <TextArea rows={5} onChange={(e) => {
-                                    setNoteComment(e.target.value)
+                                    setNote(e.target.value)
                                 }} />
                             </div>
                         </Modal>
                         <div style={{marginTop: "20px"}}>
                             {
-                                noteCommentList.map((c,index) => {
+                                noteList.map((c,index) => {
                                     return <>
                                         <b>
-                                            {
+                                            {/* {
                                                 c.commentScore < 2 ? <>
 
                                                 </> : <>{c.commentScore > 3 ? <>
@@ -104,8 +106,8 @@ export default function SummaryEditor(props) {
                                                 </> : <>
                                                     <MehOutlined style={{color: "gray"}}/>
                                                 </>}</>
-                                            }
-                                            <span style={{marginLeft: "5px"}}>评论：</span></b>
+                                            } */}
+                                            <span style={{marginLeft: "5px"}}>批注：</span></b>
                                         <br/>
                                         {`${c.uploader}（${c.uploadTime}）：${c.content}`}
                                         <br/><br/>

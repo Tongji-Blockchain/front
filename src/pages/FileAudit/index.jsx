@@ -20,8 +20,8 @@ export default function FileAudit(props) {
     const [summary, setSummary] = useState("文章摘要")
 
     //批注
-    const [noteStirng, setNoteString] = useState("")//选中文本
-    const [noteId, setNoteId] = useState("")  // 批注id
+    const [highLight, setHighLight] = useState("")//选中高亮文本
+    const [highLightId, setHighLightId] = useState("")  // 高亮文本的id
     // 编辑器内容
     const [html, setHtml] = useState("")
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,7 +70,7 @@ export default function FileAudit(props) {
 
     // 自定义校验链接
     function customCheckLinkFn(text, url) {
-        setNoteString(text);
+        setHighLight(text);
         //console.log(text);
         if (url === "") {
             return true
@@ -93,9 +93,9 @@ export default function FileAudit(props) {
 
     // 自定义转换链接 url
     function customParseLinkUrl() {                // JS 语法
-        const noteId = nanoid();
-        setNoteId(noteId);
-        return `${SELF_ADDRESS}NoteEditor/${noteId}`
+        const highLightId = nanoid();
+        setHighLightId(highLightId);
+        return `${SELF_ADDRESS}NoteEditor/${highLightId}`
         // if (url.indexOf('http') !== 0) {
         //     return `http://${url}`
         // }
@@ -145,10 +145,10 @@ export default function FileAudit(props) {
                              />
                          </div>
                         <Button onClick={() => {
-                            api.uploadNote(id, html, noteId, noteStirng).then(res => {
+                            api.uploadHighLight(id, html, highLightId, highLight).then(res => {
                                 tips(res)
                             })
-                        }} type="dashed" style={{marginTop: "10px", textAlign: "center", width: "100%"}}>上传批注</Button>
+                        }} type="dashed" style={{marginTop: "10px", textAlign: "center", width: "100%"}}>标记待批注语句</Button>
                     </div>
                 </Col>
                 <col sm={2}></col>
