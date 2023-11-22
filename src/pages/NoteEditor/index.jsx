@@ -68,7 +68,7 @@ export default function NoteEditor(props) {
                 <col sm={2}></col>
                 <Col sm={8}>
                     <div style={{marginTop: "30px", marginLeft: "30px"}}>
-                        <h2>批注</h2>
+                        <h2>当前批注列表</h2>
                         <Button onClick={() => {setIsModalOpen(true)}} type="dashed" style={{marginTop: "10px", textAlign: "center", width: "100%"}}>创建批注</Button>
                         <Modal title="请输入您对本文段的批注" open={isModalOpen} onOk={() => {
                             api.uploadNote(id, note).then(res => {
@@ -85,7 +85,7 @@ export default function NoteEditor(props) {
                             }}/>
                             </div> */}
                             <div style={{marginTop: "7px"}}>
-                                <span>批注内容</span>
+                                {/* <span>批注内容</span> */}
                                 <TextArea rows={5} onChange={(e) => {
                                     setNote(e.target.value)
                                 }} />
@@ -95,17 +95,6 @@ export default function NoteEditor(props) {
                             {
                                 noteList.map((c,index) => {
                                     return <>
-                                        <b>
-                                            {/* {
-                                                c.commentScore < 2 ? <>
-
-                                                </> : <>{c.commentScore > 3 ? <>
-                                                    <SmileOutlined style={{color: "green"}} />
-                                                </> : <>
-                                                    <MehOutlined style={{color: "gray"}}/>
-                                                </>}</>
-                                            } */}
-                                            <span style={{marginLeft: "5px"}}>批注：</span></b>
                                         <br/>
                                         {`${c.uploader}（${c.uploadTime}）：${c.content}`}
                                         <br/><br/>
