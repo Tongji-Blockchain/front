@@ -4,6 +4,7 @@ import {Input, List, Row, Col, Button, Upload, message} from 'antd';
 import { UploadOutlined } from '@ant-design/icons'
 import {JSEncrypt} from "jsencrypt";
 import * as api from "../../api/api";
+import logo from '../../assets/logo2.png'
 
 export default class Login extends Component {
 
@@ -64,6 +65,7 @@ export default class Login extends Component {
                 <Row type="flex" align="middle" justify="center">
                     {/* 左侧部分：欢迎信息和系统介绍 */}
                     <Col sm={12} style={{ textAlign: "center", padding: "50px" }}>
+                        <img src={logo} alt="Logo" style={{ maxWidth: '30%', height: 'auto' }} />
                         <h1>欢迎使用 加密政务内参批注演示系统</h1>
                         <br/>
                         <p>基于区块链的保密审阅与批注</p>

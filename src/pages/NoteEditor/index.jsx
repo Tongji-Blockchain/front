@@ -31,8 +31,8 @@ export default function SummaryEditor(props) {
     // 模拟 ajax 请求，异步设置 html
     useEffect(() => {
         api.getHighLightAndTitle(id).then(res => {
-            setHighLight(res.data.highLight)
-            setTitle(res.data.fileTitle)
+            setHighLight(res.data.HighLight)
+            setTitle(res.data.FileTitle)
             //标题、内容
         })
 
