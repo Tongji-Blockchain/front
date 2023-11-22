@@ -78,9 +78,11 @@ export default class Login extends Component {
                         <h1 style={{ textAlign: "center" }}>
                             登录
                         </h1>
-                        <Upload {...this.props} style={{ width: "100%", marginBottom: "20px" }}>
-                            <Button icon={<UploadOutlined />}>点击上传数字身份文件</Button>
-                        </Upload>
+                            <div>
+                                <Upload {...props} style={{display: "block"}} >
+                                    <Button icon={<UploadOutlined />} style={{width: "250px"}}>点击上传数字身份文件</Button>
+                                </Upload>
+                            </div>
                         <br/>
                         <a onClick={this.toRegister}>尚未生成数字身份？点击前往注册页面！</a>
                     </Col>
