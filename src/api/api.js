@@ -100,10 +100,10 @@ export function uploadArticle(titleName, fileString) {
 }
 
 // 上传批注（Note）
-export function uploadNote(articleId, newContent, commentId) {
+export function uploadNote(articleId, newContent, noteId, noteStirng) {
     let token = localStorage.getItem("token");
     if (!token) token = "";
-    return request("POST", "note/new-note", {articleId, newContent, commentId, token}).then(res => res)
+    return request("POST", "note/new-note", {articleId, newContent, noteId, noteStirng, token}).then(res => res)
 }
 
 // 上传评论（Comment）👌
@@ -145,6 +145,28 @@ export function getFileAbstract(fileId){
     if (!token) token = "";
     return request("POST","file/SummaryDownload",{fileId,token}).then(res => res)
 }
+
+//获取批注信息
+export function getNoteContentAndTitle(NoteId){
+    let token = localStorage.getItem("token");
+    if (!token) token = "";
+    return request().then(res => res)
+}
+
+//获取批注列表
+export function getNoteCommentList(NoteId){
+    let token = localStorage.getItem("token");
+    if (!token) token = "";
+    return request().then(res => res)
+}
+
+//上传批注
+export function uploadNoteComment(NoteId){
+    let token = localStorage.getItem("token");
+    if (!token) token = "";
+    return request().then(res => res)
+}
+
 
 export function addNewComment() {
 
