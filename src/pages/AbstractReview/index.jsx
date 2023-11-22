@@ -126,7 +126,7 @@ export default class FileList extends Component {
         return (
             <>
                 <Table dataSource={this.state.abstractList} columns={columns} style={{marginTop: "30px"}}/>
-                <Modal title="Basic Modal" open={isModalOpen} onOk={this.handleOpen} onCancel={this.handleClose}>
+                <Modal title="摘要" open={isModalOpen} onOk={this.handleOpen} onCancel={this.handleClose}>
                     <p>{this.state.abstract}</p>
                 </Modal>
                 <Modal title="Insure Modal" open={this.state.isModalOpen2} onOk={this.handleYes} onCancel={this.handleNo} okText="Yes" cancelText="No">
