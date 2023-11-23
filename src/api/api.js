@@ -167,8 +167,3 @@ export function uploadNote(highLightId, note){
     return request("POST", "note/uploadNote",{highLightId,note,token}).then(res => res)
 }
 
-
-export function addNewComment() {
-
-    return request("POST", "file/")
-}

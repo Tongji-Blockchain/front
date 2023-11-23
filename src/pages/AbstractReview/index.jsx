@@ -70,11 +70,6 @@ export default class FileList extends Component {
         const {isModalOpen} = this.state;
         const columns = [
             {
-                title: '序号',
-                dataIndex: 'index',
-                key: 'index',
-            },
-            {
                 title: '标题',
                 dataIndex: 'fileName',
                 key: 'fileName',
@@ -118,13 +113,19 @@ export default class FileList extends Component {
                 }
             },
             {
+                title: '当前平均得分',
+                dataIndex: 'averageScore',
+                key: 'averageScore',
+            },
+            {
                 title: '总分',
                 dataIndex: 'score',
                 key: 'score'
             }
         ];
         return (
-            <>
+            <>  
+                <h1 style={{ textAlign: 'center', marginTop: '20px' }}>当前的准入系数为 1.5 </h1>
                 <Table dataSource={this.state.abstractList} columns={columns} style={{marginTop: "30px"}}/>
                 <Modal title="摘要" open={isModalOpen} onOk={this.handleOpen} onCancel={this.handleClose}>
                     <p>{this.state.abstract}</p>
