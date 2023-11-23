@@ -25,8 +25,22 @@ export default class Register extends Component {
         const revertedPublicKey = publicKey.split("-----BEGIN PUBLIC KEY-----\n")[1].split("\n-----END PUBLIC KEY-----")[0]
         api.register(email, name, revertedPublicKey).then(res => {
             console.log("注册结果", res)
-            this.setState({generatedPublicKey: publicKey, generatedPrivateKey: privateKey})
-        })
+            if (res.status === 200) {
+                // 注册成功
+                message.success("注册成功！");
+                this.setState({generatedPublicKey: publicKey, generatedPrivateKey: privateKey});
+            } else if (res.status === 401) {
+                // 用户已存在
+                message.error("用户已存在");
+            } else {
+                // 其他错误
+                message.error("注册失败，请重试");
+            }
+            
+        }).catch(error => {
+            console.error("注册请求出错", error);
+            message.error("注册请求出错，请检查网络");
+        });
 
     }
 
