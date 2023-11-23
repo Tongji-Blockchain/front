@@ -59,7 +59,9 @@ export default function NoteEditor(props) {
                 <Col sm={14}>
                     <div style={{marginTop: "30px", paddingRight: "20px", borderRight: "dashed 1px gray"}}>
                         <h2>{title}</h2>
-
+                        <br/>
+                        <h3>待批注文本</h3>
+                        <br/>
                         <div style={{ border: '1px solid #ccc', zIndex: 100}}>
                             <p style={{ height: '500px', overflowY: 'hidden' }}>{highLight}</p>
                         </div>
