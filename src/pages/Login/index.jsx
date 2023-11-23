@@ -66,7 +66,7 @@ export default class Login extends Component {
                     {/* 左侧部分：欢迎信息和系统介绍 */}
                     <Col sm={12} style={{ textAlign: "center", padding: "50px" }}>
                         <img src={logo} alt="Logo" style={{ maxWidth: '30%', height: 'auto' }} />
-                        <h1>欢迎使用 加密政务内参批注演示系统</h1>
+                        <h1>欢迎使用 上海市委网信办政务内参批注系统</h1>
                         <br/>
                         <p>基于区块链的保密审阅与批注</p>
                         <p>国产大语言模型生成摘要</p>
