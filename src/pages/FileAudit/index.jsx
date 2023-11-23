@@ -121,7 +121,7 @@ export default function FileAudit(props) {
                     <div style={{marginTop: "30px", paddingRight: "20px", borderRight: "dashed 1px gray"}}>
                         <h2>{title}</h2>
                         <div style={{marginBottom: "20px",height: "100px", overflowX:"hidden"}}>{summary}</div>
-                        <h3>点击插入批注按钮后，需要在链接地址处输入‘确认’来标记高亮，然后点击‘标记待批注语句’来上传</h3>
+                        <h3>点击插入批注按钮后，需要点击‘确认’来标记高亮文本，然后点击‘标记待批注语句’来上传</h3>
 
                          <div style={{ border: '1px solid #ccc', zIndex: 100}}>
                              <Toolbar
