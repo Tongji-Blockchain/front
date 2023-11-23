@@ -52,7 +52,7 @@ export default class Register extends Component {
                     <Row>
                         <Col sm={11} style={{marginTop: "250px"}}>
                             <h1 style={{textAlign: "center"}}>
-                                注册
+                                数字身份注册
                             </h1>
                             <Row>
                                 <Col sm={4}></Col>
@@ -60,7 +60,7 @@ export default class Register extends Component {
                                     <Input placeholder="邮箱" onChange={(e) => {
                                         this.setState({email: e.target.value})
                                     }} />
-                                    <Input placeholder="姓名" onChange={(e) => {
+                                    <Input placeholder="用户名" onChange={(e) => {
                                         this.setState({name: e.target.value})
                                     }} style={{marginTop: "10px"}} />
                                     <div style={{width: "100%"}}>
