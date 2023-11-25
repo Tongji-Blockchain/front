@@ -114,7 +114,7 @@ export default function FileUpload(props) {
             <Button onClick={() => {
                 api.uploadArticle(title, html).then(res => {
                     tips(res)
-                    setInterval(() => {props.history.push('/file-list')}, 1000)
+                    // setInterval(() => {props.history.push('/file-list')}, 1000)
                 })
             }} type="dashed" style={{marginTop: "10px", textAlign: "center", width: "100%"}}>上传文档</Button>
         </>
