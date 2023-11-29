@@ -23,6 +23,12 @@ export default class Register extends Component {
         const publicKey = encrypt.getPublicKey()    // 生成公钥
         const privateKey = encrypt.getPrivateKey()  // 生成私钥
         const revertedPublicKey = publicKey.split("-----BEGIN PUBLIC KEY-----\n")[1].split("\n-----END PUBLIC KEY-----")[0]
+
+        if (!email.trim() || !name.trim()) {
+            message.error("邮箱 或 用户名 不能为空");
+            return;
+        }
+
         api.register(email, name, revertedPublicKey).then(res => {
             console.log("注册结果", res)
             if (res.status === 200) {
