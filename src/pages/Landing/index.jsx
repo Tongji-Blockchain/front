@@ -19,7 +19,7 @@ export default class LandingPage extends Component {
                 </Row>
                 <Row type="flex" align="middle" justify="center" style={{ marginTop: '40px' }}>
                     <Col span={12}>
-                        <p>欢迎使用文献共享批注系统，一个安全审阅和批注的平台。我们提供加密数据、安全的文件存储和共享，以及高效的审阅批注工具。</p>
+                    <p>这是一个用于安全审阅和批注的平台。我们提供基于区块链的数据加密、安全的文件存储和共享，以及高效的审阅批注工具。此外，平台还集成了基于国产大语言模型的摘要生成功能，帮助用户快速理解文档要点，以及背书机制，确保文件内容的准确性和可靠性。</p>
                     </Col>
                 </Row>
                 <Row type="flex" align="middle" justify="center" style={{ marginTop: '20px' }}>

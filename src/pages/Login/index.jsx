@@ -61,35 +61,32 @@ export default class Login extends Component {
         };
 
         return (
-            <div style={{ margin: "200px" }}>
-                <Row type="flex" align="middle" justify="center">
+            <div style={{ padding: '20px' }}> {/* 调整外部边距 */}
+                <Row justify="center" align="middle">
                     {/* 左侧部分：欢迎信息和系统介绍 */}
-                    <Col sm={12} style={{ textAlign: "center", padding: "50px" }}>
-                        <img src={logo} alt="Logo" style={{ maxWidth: '30%', height: 'auto' }} />
+                    <Col xs={24} md={12} style={{ textAlign: "center", marginBottom: '20px' }}> {/* 添加响应式布局 */}
+                        <img src={logo} alt="Logo" style={{ maxWidth: '50%', height: 'auto' }} />
                         <h1>欢迎使用 文献共享批注系统</h1>
-                        <br/>
                         <p>基于区块链的保密审阅与批注</p>
                         <p>国产大语言模型生成摘要</p>
                         <p>智能合约赋能的共识与背书</p>
-                        <br/>
-                        <p>这是一个用于安全审阅和批注的平台。我们提供基于区块链的数据加密、安全的文件存储和共享，以及高效的审阅批注工具。此外，平台还集成了基于国产大语言模型的摘要生成功能，帮助用户快速理解文档要点，以及背书机制，确保文件内容的准确性和可靠性。</p>
                     </Col>
 
                     {/* 右侧部分：登录表单 */}
-                    <Col sm={12} style={{ padding: "50px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <Col xs={24} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                         <h1 style={{ textAlign: "center" }}>
                             登录
                         </h1>
-                            <div>
-                                <Upload {...props} style={{display: "block"}} >
-                                    <Button icon={<UploadOutlined />} style={{width: "250px"}}>点击上传数字身份文件</Button>
-                                </Upload>
-                            </div>
-                        <br/>
+                        <div>
+                            <Upload {...props} style={{ width: '100%', maxWidth: '250px' }}> {/* 调整上传按钮的样式 */}
+                                <Button icon={<UploadOutlined />}>点击上传数字身份文件</Button>
+                            </Upload>
+                        </div>
+                        <br />
                         <a onClick={this.toRegister}>尚未生成数字身份？点击前往注册页面！</a>
                     </Col>
                 </Row>
             </div>
-        )
+        );
     }
 }
