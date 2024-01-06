@@ -167,3 +167,8 @@ export function uploadNote(highLightId, note){
     return request("POST", "note/uploadNote",{highLightId,note,token}).then(res => res)
 }
 
+export function getCenterList() {
+    let token = localStorage.getItem("token");
+    if (!token) token = "";
+    return request("GET", "", {token}).then(res => res)
+}

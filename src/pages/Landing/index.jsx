@@ -29,6 +29,11 @@ export default class LandingPage extends Component {
                         </Link>
                     </Col>
                     <Col span={6}>
+                        <Link to="/file-list">
+                            <Button type="primary" size="large">返回主页</Button>
+                        </Link>
+                    </Col>
+                    <Col span={6}>
                         <Link to="/register">
                             <Button size="large">注册</Button>
                         </Link>

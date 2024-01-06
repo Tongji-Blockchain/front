@@ -6,7 +6,11 @@ import {
     FileAddOutlined,
     SecurityScanOutlined,
     SendOutlined,
-    HomeOutlined
+    HomeOutlined,
+    BarChartOutlined,
+    DatabaseOutlined,
+    InfoCircleOutlined,
+    PhoneOutlined
 } from '@ant-design/icons';
 import logo from '../../assets/logo2.png'
 import {NavLink} from "react-router-dom";
@@ -27,6 +31,7 @@ import Landing from "../Landing"
 import Test from "../Test";
 import Test2 from "../Test2";
 import Chat from "../Chat";
+import center from "../center";
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -78,7 +83,8 @@ export default class Base extends Component {
                         <Menu.Item key={2} icon={<FileAddOutlined />}><NavLink to="/file-upload">文件上传</NavLink></Menu.Item>
                         <Menu.Item key={3} icon={<SecurityScanOutlined />}><NavLink to="/abstract-review">摘要背书</NavLink></Menu.Item>
                         <Menu.Item key={4} icon={<SendOutlined />}><NavLink to="/Login">登录</NavLink></Menu.Item>
-                        <Menu.Item key={5} icon={<HomeOutlined />}><NavLink to="/Landing">主页</NavLink></Menu.Item>
+                        <Menu.Item key={5} icon={<InfoCircleOutlined />}><NavLink to="/center">个人中心</NavLink></Menu.Item>
+                        <Menu.Item key={6} icon={<HomeOutlined />}><NavLink to="/Landing">主页</NavLink></Menu.Item>
 
                         {/*<Menu.Item key={5} icon={<SendOutlined />}><NavLink to="/test">测试页面</NavLink></Menu.Item>*/}
                         {/*<Menu.Item key={6} icon={<SendOutlined />}><NavLink to="/test2">测试页面2</NavLink></Menu.Item>*/}
@@ -103,6 +109,7 @@ export default class Base extends Component {
                             <Route exact path="/test" component={Test} />
                             <Route exact path="/test2" component={Test2} />
                             <Route exact path="/Login" component={Login} />
+                            <Route exact path="/center" component={center} />
                             <Route exact path="/Landing" component={Landing} />
                             <Route exact path="/NoteEditor/:id" component={NoteEditor} />
                             {/*<Route exact path="/query" component={Query}/>*/}
