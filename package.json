@@ -25,6 +25,7 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
+    "sm-crypto": "^0.3.13",
     "wangeditor": "^4.7.15",
     "web-vitals": "^2.1.4"
   },
