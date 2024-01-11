@@ -32,41 +32,44 @@ export default class Login extends Component {
                 reader.onload = function (event) {
                     //event.target.result即是用户上传的txt文件的内容
                     let data = event.target.result
-                    const publicKey = data.split("-----BEGIN SM2 PUBLIC KEY-----\n")[1].split("\n-----END SM2 PUBLIC KEY-----")[0]
-                    const privateKey = data.split("-----BEGIN SM2 PRIVATE KEY-----\n")[1].split("\n-----END SM2 PRIVATE KEY-----")[0]
-                    api.getRandomNumber(publicKey).then(res => {
-                        console.log("RES", res);
-                        if (res.status === 200) {
-                            const msg = res.data
-                            const sm2 = require('sm-crypto').sm2
-                            const cipherMode = 1
-                            let decryptedRes = sm2.doDecrypt(msg, privateKey, cipherMode)
-                            api.login(publicKey, decryptedRes).then(res2 => {
-                                if (res2.status === 200) {
-                                    const token = res2.data
-                                    localStorage.setItem("token", token)
-                                    localStorage.setItem("token_vaild","Y")
-                                    message.success("登录成功！")
-                                    that.props.history.push('/')
-                                }
-                            })
+                    if(data){
+                        let publicKey = data.split("-----BEGIN SM2 PUBLIC KEY-----\n")[1].split("\n-----END SM2 PUBLIC KEY-----")[0]
+                        let privateKey = data.split("-----BEGIN SM2 PRIVATE KEY-----\n")[1].split("\n-----END SM2 PRIVATE KEY-----")[0]
+                    
+                        api.getRandomNumber(publicKey).then(res => {
+                            console.log("RES", res);
+                            if (res.status === 200) {
+                                const msg = res.data
+                                const sm2 = require('sm-crypto').sm2
+                                const cipherMode = 1
+                                let decryptedRes = sm2.doDecrypt(msg, privateKey, cipherMode)
+                                api.login(publicKey, decryptedRes).then(res2 => {
+                                    if (res2.status === 200) {
+                                        const token = res2.data
+                                        localStorage.setItem("token", token)
+                                        localStorage.setItem("token_vaild","Y")
+                                        message.success("登录成功！")
+                                        that.props.history.push('/')
+                                    }
+                                })
 
-                            // const msg = res.data
-                            // const encrypt = new JSEncrypt()
-                            // encrypt.setPrivateKey(privateKey)
-                            // const decryptedRes = encrypt.decrypt(msg)
-                            // api.login(publicKey, decryptedRes).then(res2 => {
-                            //     if (res2.status === 200) {
-                            //         const token = res2.data
-                            //         localStorage.setItem("token", token)
-                            //         localStorage.setItem("token_vaild","Y")
-                            //         message.success("登录成功！")
-                            //         that.props.history.push('/')
-                            //     }
-                            // })
-                            //that.props.history.push('/')
-                        }
-                    })
+                                // const msg = res.data
+                                // const encrypt = new JSEncrypt()
+                                // encrypt.setPrivateKey(privateKey)
+                                // const decryptedRes = encrypt.decrypt(msg)
+                                // api.login(publicKey, decryptedRes).then(res2 => {
+                                //     if (res2.status === 200) {
+                                //         const token = res2.data
+                                //         localStorage.setItem("token", token)
+                                //         localStorage.setItem("token_vaild","Y")
+                                //         message.success("登录成功！")
+                                //         that.props.history.push('/')
+                                //     }
+                                // })
+                                //that.props.history.push('/')
+                            }
+                        })
+                    }
                 }
                 return false
             }

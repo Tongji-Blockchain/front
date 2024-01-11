@@ -60,7 +60,7 @@ export default class Base extends Component {
         if(flag==="N"){
             //console.log(flag)
             message.error("登录超时！请重新登录")
-            this.props.history.push("/login")
+            this.props.history.push("/Landing")
         }else{
             console.log("======BASE")
         }
@@ -82,9 +82,9 @@ export default class Base extends Component {
                         <Menu.Item key={1} icon={<FileTextOutlined />}><NavLink to="/file-list">文件列表</NavLink></Menu.Item>
                         <Menu.Item key={2} icon={<FileAddOutlined />}><NavLink to="/file-upload">文件上传</NavLink></Menu.Item>
                         <Menu.Item key={3} icon={<SecurityScanOutlined />}><NavLink to="/abstract-review">摘要背书</NavLink></Menu.Item>
-                        <Menu.Item key={4} icon={<SendOutlined />}><NavLink to="/Login">登录</NavLink></Menu.Item>
-                        <Menu.Item key={5} icon={<InfoCircleOutlined />}><NavLink to="/center">个人中心</NavLink></Menu.Item>
-                        <Menu.Item key={6} icon={<HomeOutlined />}><NavLink to="/Landing">主页</NavLink></Menu.Item>
+                        {/* <Menu.Item key={4} icon={<SendOutlined />}><NavLink to="/Login">登录</NavLink></Menu.Item> */}
+                        <Menu.Item key={4} icon={<InfoCircleOutlined />}><NavLink to="/center">个人中心</NavLink></Menu.Item>
+                        <Menu.Item key={5} icon={<HomeOutlined />}><NavLink to="/Landing">主页</NavLink></Menu.Item>
 
                         {/*<Menu.Item key={5} icon={<SendOutlined />}><NavLink to="/test">测试页面</NavLink></Menu.Item>*/}
                         {/*<Menu.Item key={6} icon={<SendOutlined />}><NavLink to="/test2">测试页面2</NavLink></Menu.Item>*/}
