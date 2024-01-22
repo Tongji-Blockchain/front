@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Base from "./pages/Base";
 import Register from "./pages/Register";
 import Landing from "./pages/Landing"
+import center from "./pages/center"
+import FileList from "./pages/FileList"
 import './App.css';
 
 
@@ -27,8 +29,9 @@ export default class App extends Component {
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/landing" component={Landing}/>
-                <Route path="/" component={Base}/>
-                <Redirect from="*" to="/landing"/>
+                <Route path="/center" component={center}/>
+                <Route path="/FileList" component={FileList}/>
+                <Redirect from="/" to="/landing"/>
             </Switch>
         );
     }
