@@ -44,9 +44,10 @@
 //     }
 // }
 import React from 'react';
-import { Layout, Menu, Button } from 'antd';
+import { Layout, Menu, Card } from 'antd';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo2.png'; // 你的 logo 路径
+import logo from '../../assets/logo2.png';
+import bannerImage from '../../assets/banner1.png'; 
 
 const { Header, Content } = Layout;
 
@@ -61,13 +62,20 @@ const LandingPage = () => {
                     <Menu.Item key="3"><Link to="/center">个人中心</Link></Menu.Item>
                 </Menu>
             </Header>
-            <Content style={{ padding: '50px', textAlign: 'center' }}>
+            <Content style={{ textAlign: 'center' }}>
+                <div style={{ background: `url(${bannerImage})`, minHeight: 300, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h1 style={{ color: 'white' }}>上海市委网信办政务内参批注系统</h1>
+                </div>
                 <div className="site-layout-content" style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-                    <h1>欢迎来到文献共享批注系统</h1>
-                    <p>基于区块链的保密审阅与批注</p>
-                    <p>国产大语言模型生成摘要</p>
-                    <p>智能合约赋能的共识与背书</p>
-                    {/* 更多内容 */}
+                    {/* 介绍视频 */}
+                    {/* 特征介绍和系统实时参数显示 */}
+                    <div style={{ display: 'flex', justifyContent: 'space-around', padding: '20px 0' }}>
+                        <Card title="当前系统文件数">...</Card>
+                        <Card title="当前评论数">...</Card>
+                        <Card title="批注数">...</Card>
+                        <Card title="文字平均分">...</Card>
+                        <Card title="区块高度">...</Card>
+                    </div>
                 </div>
             </Content>
         </Layout>
@@ -75,3 +83,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+

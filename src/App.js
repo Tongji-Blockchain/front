@@ -28,6 +28,7 @@ export default class App extends Component {
                 <Route path="/register" component={Register}/>
                 <Route path="/landing" component={Landing}/>
                 <Route path="/" component={Base}/>
+                <Redirect from="*" to="/landing"/>
             </Switch>
         );
     }
