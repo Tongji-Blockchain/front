@@ -124,7 +124,7 @@ export default class FileList extends Component {
             }
         ];
         return (
-            <>  
+            <>  <h2 style={{ textAlign: "center", marginTop: "30px" }}>摘要背书</h2>
                 <h1 style={{ textAlign: 'center', marginTop: '20px' }}>当前的准入系数为 1.5 </h1>
                 <Table dataSource={this.state.abstractList} columns={columns} style={{marginTop: "30px"}}/>
                 <Modal title="摘要" open={isModalOpen} onOk={this.handleOpen} onCancel={this.handleClose}>

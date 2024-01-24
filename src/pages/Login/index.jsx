@@ -18,7 +18,7 @@ export default class Login extends Component {
     }
 
     toLanding = () => {
-        this.props.history.push('/landing')
+        this.props.history.push('/')
     }
 
 
@@ -54,7 +54,7 @@ export default class Login extends Component {
                                         localStorage.setItem("token", token)
                                         localStorage.setItem("token_vaild","Y")
                                         message.success("登录成功！")
-                                        that.props.history.push('/FileList')
+                                        that.props.history.push('/file-list')
                                     }
                                 })
                             }

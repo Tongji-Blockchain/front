@@ -59,7 +59,7 @@ export default class FileList extends Component {
             }
         ];
         return (
-            <>
+            <><h2 style={{ textAlign: "center", marginTop: "30px" }}>文件列表</h2>
                 <Table dataSource={fileList} columns={columns} style={{marginTop: "30px"}} />
             </>
         );

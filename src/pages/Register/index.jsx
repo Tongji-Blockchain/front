@@ -12,10 +12,15 @@ export default class Register extends Component {
         name: "",
         generatedPublicKey: "",
         generatedPrivateKey: "",
+        isRegistered: false,
     }
 
     toLogin = () => {
         this.props.history.push('/login')
+    }
+
+    toLanding = () => {
+        this.props.history.push('/')
     }
 
     register = () => {
@@ -40,7 +45,7 @@ export default class Register extends Component {
             if (res.status === 200) {
                 // 注册成功
                 message.success("注册成功！");
-                this.setState({generatedPublicKey: TextPublicKey, generatedPrivateKey: TextPrivateKey});
+                this.setState({generatedPublicKey: TextPublicKey, generatedPrivateKey: TextPrivateKey,isRegistered: true});
             } else if (res.status === 401) {
                 // 用户已存在
                 message.error("用户已存在");
@@ -57,42 +62,45 @@ export default class Register extends Component {
     }
 
     exportLoginInfo = () => {
-        const {generatedPublicKey, generatedPrivateKey} = this.state
-        const key = generatedPublicKey + "\n" + generatedPrivateKey
+        const { generatedPublicKey, generatedPrivateKey, name } = this.state;
+        const key = generatedPublicKey + "\n" + generatedPrivateKey;
         const blob = new Blob([key], {
             type: "text/plain;charset=utf-8"
-        })
-        const objectURL = URL.createObjectURL(blob)
-        const aTag = document.createElement('a')
-        aTag.href = objectURL
-        aTag.download = "政务内参系统数字身份.txt"
-        aTag.click()
-        URL.revokeObjectURL(objectURL)
+        });
+        const objectURL = URL.createObjectURL(blob);
+        const aTag = document.createElement('a');
+        aTag.href = objectURL;
+        aTag.download = `${name.replace(/ /g, '_')}_加密数字身份.txt`;
+        aTag.click();
+        URL.revokeObjectURL(objectURL);
     }
+    
 
     render() {
-        const {generatedPublicKey, generatedPrivateKey, name, email} = this.state
+        const { email, name, generatedPublicKey, generatedPrivateKey, isRegistered } = this.state;
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundSize: 'cover' }}>
-                <Card style={{ width: '400px', padding: '20px', textAlign: 'center', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-                    <img src={logo} alt="Logo" style={{ width: '200px', marginBottom: '20px' }} />
-                    <h1>数字身份注册</h1>
-                    <Input placeholder="邮箱" value={email} onChange={(e) => this.setState({ email: e.target.value })} />
-                    <Input placeholder="用户名" value={name} style={{ marginTop: '10px' }} onChange={(e) => this.setState({ name: e.target.value })} />
-                    <Button onClick={this.register} type="primary" style={{ marginTop: '10px', width: '100%' }} >
-                        创建您的第一个数字身份
-                    </Button>
-                    <a onClick={this.toLogin} style={{ display: 'block', marginTop: '12px' }}>已有数字身份？点击前往登录页面！</a>
-                    {generatedPublicKey && (
-                        <div style={{ marginTop: '20px', textAlign: 'left' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundSize: 'cover' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+                    <Card style={{ width: 400, textAlign: 'center', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+                        <img src={logo} alt="Logo" style={{ width: '200px', marginBottom: '20px' }} />
+                        <Input placeholder="邮箱" value={email} onChange={(e) => this.setState({ email: e.target.value })} />
+                        <Input placeholder="用户名" value={name} style={{ marginTop: '10px' }} onChange={(e) => this.setState({ name: e.target.value })} />
+                        <Button onClick={this.register} type="primary" style={{ marginTop: '10px', width: '100%' }}>创建您的第一个数字身份</Button>
+                        <a onClick={this.toLogin} style={{ display: 'block', marginTop: '12px' }}>已有数字身份？点击前往登录页面！</a>
+                        <a onClick={this.toLanding} style={{ display: 'block', marginTop: '12px' }}>返回主页</a>
+                    </Card>
+
+                    {isRegistered && (
+                        <Card style={{ width: 300, textAlign: 'center', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', overflowWrap: 'break-word' }}>
+                            <h2>请妥善保存该数字身份<br/>这将是您的唯一登录凭证</h2>
                             <h3>邮箱: {email}</h3>
                             <h3>姓名: {name}</h3>
-                            <h3>公钥: {generatedPublicKey}</h3>
-                            <h3>私钥: {generatedPrivateKey}</h3>
-                            <Button onClick={this.exportLoginInfo} type="dashed" style={{ width: '100%' }} >导出您的数字身份信息</Button>
-                        </div>
+                            <p style={{ fontSize: '12px' }}>公钥: {generatedPublicKey}</p>
+                            <p style={{ fontSize: '12px' }}>私钥: {generatedPrivateKey}</p>
+                            <Button onClick={this.exportLoginInfo} type="primary" style={{ width: '100%' }}>导出您的数字身份信息</Button>
+                        </Card>
                     )}
-                </Card>
+                </div>
             </div>
         );
     }

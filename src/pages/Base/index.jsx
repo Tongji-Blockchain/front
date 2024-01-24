@@ -10,7 +10,8 @@ import {
     BarChartOutlined,
     DatabaseOutlined,
     InfoCircleOutlined,
-    PhoneOutlined
+    PhoneOutlined,
+    KeyOutlined
 } from '@ant-design/icons';
 import logo from '../../assets/logo2.png'
 import {NavLink} from "react-router-dom";
@@ -27,11 +28,12 @@ import FileAudit from "../FileAudit/index"
 import NoteEditor from "../NoteEditor/index"
 import FileUpload from "../FileUpload";
 import Login from "../Login";
+import Register from "../Register";
 import Landing from "../Landing"
 import Test from "../Test";
 import Test2 from "../Test2";
 import Chat from "../Chat";
-import center from "../center";
+import Center from "../center";
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -79,28 +81,24 @@ export default class Base extends Component {
                         <img src={logo} alt="" style={{width: "70%", marginLeft: "15px", marginTop: "15px", paddingBottom: "10px"}}/>
                     </div>
                     <Menu theme="light" mode="inline">
-                        <Menu.Item key={1} icon={<FileTextOutlined />}><NavLink to="/file-list">文件列表</NavLink></Menu.Item>
-                        <Menu.Item key={2} icon={<FileAddOutlined />}><NavLink to="/file-upload">文件上传</NavLink></Menu.Item>
-                        <Menu.Item key={3} icon={<SecurityScanOutlined />}><NavLink to="/abstract-review">摘要背书</NavLink></Menu.Item>
-                        {/* <Menu.Item key={4} icon={<SendOutlined />}><NavLink to="/Login">登录</NavLink></Menu.Item> */}
-                        <Menu.Item key={4} icon={<InfoCircleOutlined />}><NavLink to="/center">个人中心</NavLink></Menu.Item>
-                        <Menu.Item key={5} icon={<HomeOutlined />}><NavLink to="/Landing">主页</NavLink></Menu.Item>
-
-                        {/*<Menu.Item key={5} icon={<SendOutlined />}><NavLink to="/test">测试页面</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={6} icon={<SendOutlined />}><NavLink to="/test2">测试页面2</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={3} icon={<BarChartOutlined />}><NavLink to="/eql/manage/data">数据管理</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={4} icon={<DatabaseOutlined />}><NavLink to="currentStepmanage/database">数据库管理</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={5} icon={<BookOutlined />}><NavLink to="/eql/log">系统日志</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={6} icon={<InfoCircleOutlined />}><NavLink to="/eql/help">帮助</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={7} icon={<PhoneOutlined />}><NavLink to="/eql/contact">联系我们</NavLink></Menu.Item>*/}
-                        {/*<Menu.Item key={8} icon={<PhoneOutlined />}><NavLink to="/test">测试</NavLink></Menu.Item>*/}
+                        <Menu.Item key={1} icon={<SendOutlined />}><NavLink to="/Login">登录</NavLink></Menu.Item>
+                        <Menu.Item key={2} icon={<KeyOutlined />}><NavLink to="/Register">注册</NavLink></Menu.Item>
+                        <Menu.Item key={3} icon={<FileTextOutlined />}><NavLink to="/file-list">文件列表</NavLink></Menu.Item>
+                        <Menu.Item key={4} icon={<FileAddOutlined />}><NavLink to="/file-upload">文件上传</NavLink></Menu.Item>
+                        <Menu.Item key={5} icon={<SecurityScanOutlined />}><NavLink to="/abstract-review">摘要背书</NavLink></Menu.Item>
+                        <Menu.Item key={6} icon={<InfoCircleOutlined />}><NavLink to="/center">个人中心</NavLink></Menu.Item>
+                        <Menu.Item key={7} icon={<HomeOutlined />}><NavLink to="/">系统详情</NavLink></Menu.Item> 
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
                     {/*<Header className="site-layout-background" style={{padding: 0, height: "10px"}}/>*/}
                     <Content style={{margin: '0 16px'}}>
+                        <Route exact path="/Login" component={Login} />
                         {/*<ContentMain/>*/}
                         <Switch>
+                            <Route exact path="/" component={Landing} />
+                            <Route exact path="/Login" component={Login} />
+                            <Route exact path="/Register" component={Register} />
                             <Route exact path="/file-list" component={FileList} />
                             <Route exact path="/abstract-review" component={AbstractReview} />
                             <Route exact path="/file-audit/:id" component={FileAudit} />
@@ -108,9 +106,7 @@ export default class Base extends Component {
                             <Route exact path="/chat" component={Chat} />
                             <Route exact path="/test" component={Test} />
                             <Route exact path="/test2" component={Test2} />
-                            <Route exact path="/Login" component={Login} />
-                            <Route exact path="/center" component={center} />
-                            <Route exact path="/Landing" component={Landing} />
+                            <Route exact path="/center" component={Center} />
                             <Route exact path="/NoteEditor/:id" component={NoteEditor} />
                             {/*<Route exact path="/query" component={Query}/>*/}
                             {/*<Route exact path="/graph" component={GraphManagement}/>*/}
@@ -125,7 +121,7 @@ export default class Base extends Component {
                             textAlign: 'center',
                         }}
                     >
-                        文献共享批注系统 ©2023 PAI实验室版权所属
+                        文献共享批注系统 ©2023 PAI实验室版权所属{/* 上海市委网信办政务内参批注系统 */}
                     </Footer>
                 </Layout>
             </Layout>

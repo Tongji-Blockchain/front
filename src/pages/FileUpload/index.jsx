@@ -88,7 +88,7 @@ export default function FileUpload(props) {
     }, [editor])
 
     return (
-        <>
+        <><h2 style={{ textAlign: "center", marginTop: "30px" }}>文件上传</h2>
             <div style={{marginTop: "10px"}}></div>
             文章标题<Input onChange={(e) => {setTitle(e.target.value)}} />
             <div style={{marginTop: "7px"}}></div>
