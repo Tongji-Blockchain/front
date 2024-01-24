@@ -16,7 +16,7 @@ export default class Center extends Component {
         const flag=localStorage.getItem("token_vaild");
         if(flag==="N"){
             message.error("登录超时！请重新登录")
-            this.props.history.push("/login")
+            this.props.history.push("/Login")
         }else{
             api.getUserInfo().then(res => {
                 this.setState({userInfo: res.data})

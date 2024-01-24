@@ -9,6 +9,14 @@ import * as api from "../../api/api";
 
 const {  Content} = Layout;
 
+toRegister = () => {
+    this.props.history.push('/register')
+}
+
+toLogin = () => {
+    this.props.history.push('/Login')
+}
+
 const LandingPage = () => {
     // 定义状态来存储系统信息
     const [sysInfo, setSysInfo] = useState({
@@ -53,7 +61,15 @@ const LandingPage = () => {
                     <LinkOutlined style={{ fontSize: '50px', color: 'white' }} />
                     <p style={{ color: 'white' }}>基于国密算法SM的<br/>身份认证与数据储存</p>
                 </div>
-            </div>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                    <Button type="primary" size="large" style={{ marginRight: '10px' }}>
+                    <Link to="/login">登录</Link>
+                    </Button>
+                    <Button size="large">
+                    <Link to="/register">注册</Link>
+                    </Button>
+                </div>
                 </div>
                 <div className="site-layout-content" style={{ padding: 24 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '20px' }}>
