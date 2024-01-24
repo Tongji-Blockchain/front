@@ -47,7 +47,7 @@ const LandingPage = () => {
                 </div>
                 <div style={{ width: '200px', textAlign: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '10px', borderRadius: '10px', margin: '0 20px' }}>
                     <FileTextOutlined style={{ fontSize: '50px', color: 'white' }} />
-                    <p style={{ color: 'white' }}>清华大语言模型chatGLM2<br/>智能生成摘要</p>
+                    <p style={{ color: 'white' }}>国产大语言模型<br/>智能生成摘要</p>
                 </div>
                 <div style={{ width: '200px', textAlign: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '10px', borderRadius: '10px', margin: '0 20px' }}>
                     <LinkOutlined style={{ fontSize: '50px', color: 'white' }} />
