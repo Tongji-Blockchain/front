@@ -27,13 +27,12 @@ import Center from "../center";
 
 const {Header, Content, Footer, Sider} = Layout;
 
-
 export default class Base extends Component {
 
     state = {
         collapsed: false,
         loading: false,
-        isMobile: window.innerWidth <= 767
+        isMobile: window.innerWidth <= 1080
     }
 
     onCollapse = (collapsed) => {
@@ -49,7 +48,7 @@ export default class Base extends Component {
       }
     
       handleResize = () => {
-        this.setState({ isMobile: window.innerWidth <= 767 });
+        this.setState({ isMobile: window.innerWidth <= 1080 });
       };
 
     render() {
@@ -68,10 +67,8 @@ export default class Base extends Component {
         return (
             <Layout style={{minHeight: '100vh',}}>
                 {isMobile ? (
-                    <Header className="site-layout-background" style={{ padding: 0 }}>
-                        <div className="logo">
-                        <img src={logo} alt="" style={{ width: "70%", margin: "auto" }} />
-                        </div>
+                    <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <img src={logo} alt="Logo" style={{ width: '11%' , marginLeft: "-50px"}} />
                         {menu}
                     </Header>
                     ) : (
@@ -102,16 +99,11 @@ export default class Base extends Component {
                             <Route exact path="/NoteEditor/:id" component={NoteEditor} />
                         </Switch>
                     </Content>
-                    <Footer
-                        style={{
-                            textAlign: 'center',
-                        }}
-                    >
+                    <Footer style={{textAlign: 'center',}}>
                         文献共享批注系统 ©2023 PAI实验室版权所属{/* 上海市委网信办政务内参批注系统 */}
                     </Footer>
                 </Layout>
             </Layout>
         );
     }
-
 }
