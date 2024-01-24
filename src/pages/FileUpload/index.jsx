@@ -13,7 +13,7 @@ export default function FileUpload(props) {
     const flag=localStorage.getItem("token_vaild");
     if(flag==="N"){
         message.error("登录超时！请重新登录")
-        props.history.push("/login")
+        props.history.push("/Login")
     }
 
     // editor 实例

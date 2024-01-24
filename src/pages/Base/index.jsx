@@ -62,7 +62,7 @@ export default class Base extends Component {
         if(flag==="N"){
             //console.log(flag)
             message.error("登录超时！请重新登录")
-            this.props.history.push("/Landing")
+            this.props.history.push("/Login")
         }else{
             console.log("======BASE")
         }
