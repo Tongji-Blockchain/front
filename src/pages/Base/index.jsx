@@ -56,17 +56,17 @@ export default class Base extends Component {
 
     
 
-    componentDidMount() {
-        checkToken()
-        const flag=localStorage.getItem("token_vaild");
-        if(flag==="N"){
-            //console.log(flag)
-            message.error("登录超时！请重新登录")
-            this.props.history.push("/Login")
-        }else{
-            console.log("======BASE")
-        }
-    }
+    // componentDidMount() {
+    //     checkToken()
+    //     const flag=localStorage.getItem("token_vaild");
+    //     if(flag==="N"){
+    //         //console.log(flag)
+    //         message.error("登录超时！请重新登录")
+    //         this.props.history.push("/Login")
+    //     }else{
+    //         console.log("======BASE")
+    //     }
+    // }
 
     render() {
         const {collapsed, loading} = this.state;

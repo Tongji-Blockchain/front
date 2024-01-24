@@ -69,7 +69,7 @@ export default class Login extends Component {
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundSize: 'cover' }}>
                 <Card style={{ width: 400, padding: '20px', textAlign: 'center', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                     <img src={logo} alt="Logo" style={{ width: '200px', marginBottom: '20px' }} />
-                    <h1>欢迎登录</h1>
+                    <h1>欢迎使用<br/>文献共享批注系统</h1>
                     <Upload {...props}>
                         <Button type="primary" icon={<UploadOutlined />} block>点击上传数字身份文件</Button>
                     </Upload>

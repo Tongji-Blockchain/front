@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, Card, message,Statistic } from 'antd';
+import { Layout, Menu, Card, message,Statistic,Button} from 'antd';
 import { Link } from 'react-router-dom';
 import { BlockOutlined, FileTextOutlined, LinkOutlined } from '@ant-design/icons';
 import logo from '../../assets/logo2.png';
@@ -8,14 +8,6 @@ import video from '../../assets/视频.mp4';
 import * as api from "../../api/api";
 
 const {  Content} = Layout;
-
-toRegister = () => {
-    this.props.history.push('/register')
-}
-
-toLogin = () => {
-    this.props.history.push('/Login')
-}
 
 const LandingPage = () => {
     // 定义状态来存储系统信息
@@ -63,7 +55,7 @@ const LandingPage = () => {
                 </div>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                    <Button type="primary" size="large" style={{ marginRight: '10px' }}>
+                    <Button type="primary" size="large" style={{ marginRight: '50px' }}>
                     <Link to="/login">登录</Link>
                     </Button>
                     <Button size="large">
