@@ -32,7 +32,7 @@ export default class Base extends Component {
     state = {
         collapsed: false,
         loading: false,
-        isMobile: window.innerWidth <= 1080
+        isMobile: window.innerWidth <= 1000
     }
 
     onCollapse = (collapsed) => {
@@ -48,7 +48,7 @@ export default class Base extends Component {
       }
     
       handleResize = () => {
-        this.setState({ isMobile: window.innerWidth <= 1080 });
+        this.setState({ isMobile: window.innerWidth <= 1000 });
       };
 
     render() {
@@ -67,9 +67,13 @@ export default class Base extends Component {
         return (
             <Layout style={{minHeight: '100vh',}}>
                 {isMobile ? (
-                    <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <img src={logo} alt="Logo" style={{ width: '11%' , marginLeft: "-50px"}} />
+                    <Header style={{ display: 'flex', alignItems: 'center', padding: '0 0' }}>
+                    <div style={{ marginRight: '0' }}>
+                        <img src={logo} alt="Logo" style={{ maxHeight: '100%', height: '90px', marginTop:"18px"}} />
+                    </div>
+                    <div style={{ flexGrow: 1, overflow: 'auto' }}>
                         {menu}
+                    </div>
                     </Header>
                     ) : (
                     <Sider theme="light" collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
