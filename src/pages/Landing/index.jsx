@@ -55,12 +55,8 @@ const LandingPage = () => {
                 </div>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                    <Button type="primary" size="large" style={{ marginRight: '50px' }}>
-                    <Link to="/login">登录</Link>
-                    </Button>
-                    <Button size="large">
-                    <Link to="/register">注册</Link>
-                    </Button>
+                    <Button type="primary" size="large" style={{ marginRight: '50px' }} href='/login'>登录</Button>
+                    <Button size="large" href='/register'>注册</Button>
                 </div>
                 </div>
                 <div className="site-layout-content" style={{ padding: 24 }}>
