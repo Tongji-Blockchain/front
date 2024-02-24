@@ -80,7 +80,7 @@ const LandingPage = () => {
                         <Statistic title="区块链运行状况" value={sysInfo.mining ? '运行中' : '停止'} />
                     </Card>
                     <Card hoverable style={{ width: 200, boxShadow: '0px 0px 10px rgba(0,0,0,0.2)', alignSelf: 'start' }}>
-                        <Statistic title="哈希速率" value={sysInfo.hashRate + ' H/s'} />
+                        <Statistic title="哈希率" value={sysInfo.hashRate + ' H/s'} />
                     </Card>
 
                     </div>
