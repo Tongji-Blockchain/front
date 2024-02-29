@@ -91,10 +91,10 @@ const LandingPage = () => {
 
                     </div>
                     <Card hoverable style={{ marginTop: '20px', boxShadow: '0px 0px 10px rgba(0,0,0,0.2)' }}>
-                        {/* <video width="70%" controls>
+                        <video width="70%" controls>
                             <source src={video} type="video/mp4" />
                             Your browser does not support the video tag.
-                        </video> */}
+                        </video>
                         <div style={{ padding: '15px' }}>
                             <h3>政务安全审阅批注平台</h3>
                             <p>平台提供基于区块链的数据加密、安全的文件存储和共享，以及高效的审阅批注工具。此外，平台还集成了基于国产大语言模型的摘要生成功能，帮助用户快速理解文档要点，以及背书机制，确保文件内容的准确性和可靠性。</p>
