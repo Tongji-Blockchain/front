@@ -44,7 +44,7 @@ const LandingPage = () => {
             <Content style={{ textAlign: 'center' }}>
                 <div style={{ background: `url(${bannerImage}) no-repeat center center`, backgroundSize: 'cover', minHeight: 600, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '20px 40px', borderRadius: '10px', textAlign: 'center' }}>
-                    <h1 style={{ color: 'white', fontSize: '48px' }}>上海市委网信办政务内参批注系统</h1>
+                    <h1 style={{ color: 'white', fontSize: '48px' }}>政务内参批注系统</h1>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px', width: '100%' }}>
                 <div style={{ width: '200px', textAlign: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '10px', borderRadius: '10px', margin: '0 20px' }}>

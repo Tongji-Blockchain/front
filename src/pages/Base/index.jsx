@@ -104,7 +104,7 @@ export default class Base extends Component {
                         </Switch>
                     </Content>
                     <Footer style={{textAlign: 'center',}}>
-                        上海市委网信办政务内参批注系统
+                        政务内参批注系统
                     </Footer>
                 </Layout>
             </Layout>
