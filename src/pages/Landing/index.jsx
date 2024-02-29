@@ -6,6 +6,12 @@ import logo from '../../assets/logo2.png';
 import bannerImage from '../../assets/banner1.png';
 import video from '../../assets/视频.mp4';
 import * as api from "../../api/api";
+import register_direction from "../../assets/register_direction.png"
+import login_direction from "../../assets/login_direction.png"
+import file_upload from "../../assets/file_upload.png"
+import file_audit from "../../assets/file_audit.png"
+import abstract from "../../assets/abstract.png"
+import file_encryption from "../../assets/file_encryption.png"
 
 const {  Content} = Layout;
 
