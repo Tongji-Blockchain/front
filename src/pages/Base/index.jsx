@@ -104,7 +104,7 @@ export default class Base extends Component {
                         </Switch>
                     </Content>
                     <Footer style={{textAlign: 'center',}}>
-                        文献共享批注系统 ©2023 PAI实验室版权所属{/* 上海市委网信办政务内参批注系统 */}
+                        上海市委网信办政务内参批注系统
                     </Footer>
                 </Layout>
             </Layout>
